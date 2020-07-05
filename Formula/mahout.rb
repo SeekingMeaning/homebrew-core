@@ -1,39 +1,28 @@
 class Mahout < Formula
   desc "Library to help build scalable machine learning libraries"
   homepage "https://mahout.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=mahout/0.13.0/apache-mahout-distribution-0.13.0.tar.gz"
-  mirror "https://archive.apache.org/dist/mahout/0.13.0/apache-mahout-distribution-0.13.0.tar.gz"
-  sha256 "87bdc86e16b5817d6b5a810b94d7389604887f7de9c680f34faaf0cbb8dabf6f"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua?path=mahout/0.14.0/mahout-0.14.0-source-release.zip"
+  mirror "https://archive.apache.org/dist/mahout/0.14.0/mahout-0.14.0-source-release.zip"
+  sha256 "f95b257e3652ae9c6e6f649d154e7073cb554aa85bc996c9b483d796e2edab7d"
+  license "Apache-2.0"
+  head "https://github.com/apache/mahout.git"
 
-  head do
-    url "https://github.com/apache/mahout.git"
-    depends_on "maven" => :build
-  end
-
-  bottle :unneeded
-
+  depends_on "maven" => :build
   depends_on "hadoop"
   depends_on "openjdk"
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
 
-    if build.head?
-      chmod 755, "./bin"
-      system "mvn", "-DskipTests", "clean", "install"
-    end
+    chmod 755, "./bin"
+    system "mvn", "-DskipTests", "clean", "install"
 
     libexec.install "bin"
 
-    if build.head?
-      libexec.install Dir["buildtools/target/*.jar"]
-      libexec.install Dir["core/target/*.jar"]
-      libexec.install Dir["examples/target/*.jar"]
-      libexec.install Dir["math/target/*.jar"]
-    else
-      libexec.install Dir["*.jar"]
-    end
+    libexec.install Dir["buildtools/target/*.jar"]
+    libexec.install Dir["core/target/*.jar"]
+    libexec.install Dir["examples/target/*.jar"]
+    libexec.install Dir["math/target/*.jar"]
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files libexec/"bin", :JAVA_HOME => ENV["JAVA_HOME"]
