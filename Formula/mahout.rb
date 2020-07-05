@@ -12,7 +12,7 @@ class Mahout < Formula
   depends_on :java => "1.8"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home("1.8")
 
     chmod 755, "./bin"
     system "mvn", "-DskipTests", "clean", "install"
@@ -25,7 +25,7 @@ class Mahout < Formula
     libexec.install Dir["math/target/*.jar"]
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => ENV["JAVA_HOME"]
+    bin.env_script_all_files libexec/"bin", Language::Java.java_home_env("1.8")
   end
 
   test do
