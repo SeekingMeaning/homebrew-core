@@ -9,7 +9,7 @@ class Mahout < Formula
 
   depends_on "maven" => :build
   depends_on "hadoop"
-  depends_on "openjdk"
+  depends_on :java => "1.8"
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
