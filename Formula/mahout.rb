@@ -15,7 +15,7 @@ class Mahout < Formula
     ENV["JAVA_HOME"] = Language::Java.java_home("1.8")
 
     chmod 755, "./bin"
-    system "mvn", "-DskipTests", "clean", "install"
+    system "mvn", "-DskipTests", "-DadditionalJOption=-Xdoclint:none", "clean", "install"
 
     libexec.install "bin"
 
