@@ -12,6 +12,7 @@ class Bowtie2 < Formula
     sha256 "61597b46c1e6bd55d74c89e107342c4bdb5014d3a7ea37628d544b6f429bef9c" => :high_sierra
   end
 
+  depends_on "python@3.8"
   depends_on "tbb"
 
   def install
