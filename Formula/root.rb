@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.22.00.source.tar.gz"
   version "6.22.00"
   sha256 "efd961211c0f9cd76cf4a486e4f89badbcf1d08e7535bba556862b3c1a80beed"
-  revision 1
+  revision 2
   head "https://github.com/root-project/root.git"
 
   bottle do
@@ -42,7 +42,7 @@ class Root < Formula
   depends_on "pcre"
   depends_on "python@3.8"
   depends_on "tbb"
-  depends_on "xrootd"
+  depends_on "xrootd@4"
   depends_on "xz" # for LZMA
   depends_on "zstd"
 
