@@ -1,7 +1,7 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://files.pythonhosted.org/packages/40/41/5c9fae40b32ced68ad09e12f967be6e41309d63359948c6518d4c42de4a4/offlineimap-7.3.3.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/o/offlineimap/offlineimap-7.3.3.tar.gz"
   sha256 "ce7642e30e00a93d81d1990ec68debc7548b575b66424b79977bc685657c1862"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
