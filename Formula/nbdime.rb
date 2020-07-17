@@ -3,7 +3,7 @@ class Nbdime < Formula
 
   desc "Jupyter Notebook Diff and Merge tools"
   homepage "https://nbdime.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/92/84/6358505bef11c164fce3b747b4193ec9d9617cb2db9bb6c60c9f6d30109c/nbdime-2.0.0.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/n/nbdime/nbdime-2.0.0.tar.gz"
   sha256 "896f79a23557f190b73a3981fdceb128a2d24454701daef74d82aac2aa10715d"
 
   bottle do
