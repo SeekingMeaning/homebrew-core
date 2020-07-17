@@ -3,7 +3,7 @@ class Nyx < Formula
 
   desc "Command-line monitor for Tor"
   homepage "https://nyx.torproject.org/"
-  url "https://files.pythonhosted.org/packages/f4/da/68419425cb0f64f996e2150045c7043c2bb61f77b5928c2156c26a21db88/nyx-2.1.0.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/n/nyx/nyx-2.1.0.tar.gz"
   sha256 "88521488d1c9052e457b9e66498a4acfaaa3adf3adc5a199892632f129a5390b"
   revision 1
 

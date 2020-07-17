@@ -3,7 +3,7 @@ class Khal < Formula
 
   desc "CLI calendar application"
   homepage "https://lostpackets.de/khal/"
-  url "https://files.pythonhosted.org/packages/f7/45/555398810c14f572ea9ff8e92cd4f6e492ba8c50da1241fad58e58234463/khal-0.10.1.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/k/khal/khal-0.10.1.tar.gz"
   sha256 "d450f9da70ddead28d794eed81c2d2a074655980a16cbd9f47f1c0c9e59b0be5"
   license "MIT"
   revision 2

@@ -3,7 +3,7 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/da/ec/8534d40acb69bfa2df5b88604210a62ccd21ab4d45d2db89ed932b3597d2/jupyterlab-2.2.0.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/j/jupyterlab/jupyterlab-2.2.0.tar.gz"
   sha256 "c76f27475374b11634ee1616da14d3dd22be04bc604057858ae878df20e40f7e"
 
   bottle do

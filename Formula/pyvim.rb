@@ -3,7 +3,7 @@ class Pyvim < Formula
 
   desc "Pure Python Vim clone"
   homepage "https://github.com/jonathanslenders/pyvim"
-  url "https://files.pythonhosted.org/packages/7b/7c/4c44b77642e866bbbe391584433c11977aef5d1dc05da879d3e8476cab10/pyvim-3.0.2.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/p/pyvim/pyvim-3.0.2.tar.gz"
   sha256 "da94f7a8e8c4b2b4611196987c3ca2840b0011cc399618793e551f7149f26c6a"
   license "BSD-3-Clause"
 

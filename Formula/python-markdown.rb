@@ -3,7 +3,7 @@ class PythonMarkdown < Formula
 
   desc "Python implementation of Markdown"
   homepage "https://pypi.python.org/pypi/Markdown"
-  url "https://files.pythonhosted.org/packages/44/30/cb4555416609a8f75525e34cbacfc721aa5b0044809968b2cf553fd879c7/Markdown-3.2.2.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/M/Markdown/Markdown-3.2.2.tar.gz"
   sha256 "1fafe3f1ecabfb514a5285fca634a53c1b32a81cb0feb154264d55bf2ff22c17"
 
   bottle do

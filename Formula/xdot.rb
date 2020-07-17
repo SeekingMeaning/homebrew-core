@@ -1,7 +1,7 @@
 class Xdot < Formula
   desc "Interactive viewer for graphs written in Graphviz's dot language"
   homepage "https://github.com/jrfonseca/xdot.py"
-  url "https://files.pythonhosted.org/packages/0f/1b/7ae17e0931ff011bba1c86000674666176021756d07ed29ce0b263b3fddf/xdot-1.1.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/x/xdot/xdot-1.1.tar.gz"
   sha256 "e15c53d80dc8777402a7258eebe6cbf395d04085ff9699bbffae91df0ecc2433"
   license "LGPL-3.0"
   revision 1

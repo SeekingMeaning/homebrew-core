@@ -1,7 +1,7 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/ef/9c/b023e69e2de551fe2250d2e374a62e41719d6bb491f96c6bc9c689fb1d28/urh-2.8.8.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/u/urh/urh-2.8.8.tar.gz"
   sha256 "8c05637f7090958a03b3c67cb824252fa8a3677622f0c9e60aac91f0d0af07ca"
   license "GPL-3.0"
   revision 1
