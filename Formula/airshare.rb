@@ -3,7 +3,7 @@ class Airshare < Formula
 
   desc "Cross-platform content sharing in a local network"
   homepage "https://airshare.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/cb/a2/d59c18cd6a143bf860c29acb70552b7351fd7e0f56213be86b624601106b/Airshare-0.1.6.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/A/Airshare/Airshare-0.1.6.tar.gz"
   sha256 "138976933bcf2c0bc99f18901242544919e9fafe43735b4f83b19d4ae5964be7"
 
   bottle do
