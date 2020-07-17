@@ -3,7 +3,7 @@ class Txt2tags < Formula
 
   desc "Conversion tool to generating several file formats"
   homepage "https://txt2tags.org/"
-  url "https://files.pythonhosted.org/packages/0e/80/dc4215b549ddbe1d1251bc4cd47ad6f4a65e1f9803815997817ff297d22e/txt2tags-3.7.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/t/txt2tags/txt2tags-3.7.tar.gz"
   sha256 "27969387206d12b4e4a0eb13d0d5dd957d71dbb932451b0dceeab5e3dbb6178a"
   revision 1
 
