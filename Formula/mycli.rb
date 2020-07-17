@@ -3,7 +3,7 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://mycli.net/"
-  url "https://files.pythonhosted.org/packages/dc/b4/4a252eb2ba8343a419b468655a8d1570c146db3e4ab3bc96fb1cd60acdba/mycli-1.21.1.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/m/mycli/mycli-1.21.1.tar.gz"
   sha256 "8f630a0847243fbed2eeead05b0952963916e1b60a11a065bffbb234a30737e1"
 
   bottle do
