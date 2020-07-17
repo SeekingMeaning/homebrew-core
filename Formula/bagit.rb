@@ -3,7 +3,7 @@ class Bagit < Formula
 
   desc "Library for creation, manipulation, and validation of bags"
   homepage "https://libraryofcongress.github.io/bagit-python/"
-  url "https://files.pythonhosted.org/packages/ee/11/7a7fa81c0d43fb4d449d418eba57fc6c77959754c5c2259a215152810555/bagit-1.7.0.tar.gz"
+  url "https://files.pythonhosted.org/packages/source/b/bagit/bagit-1.7.0.tar.gz"
   sha256 "f248a3dad06fd3e5d329217baace6ade79d106579696b13e2c0bbc583101ded4"
   version_scheme 1
   head "https://github.com/LibraryOfCongress/bagit-python.git"
