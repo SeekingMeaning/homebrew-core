@@ -3,6 +3,7 @@ class Abcl < Formula
   homepage "https://abcl.org/"
   url "https://abcl.org/releases/1.7.1/abcl-src-1.7.1.tar.gz"
   sha256 "d51014b2be6ecb5bcaaacda0adf4607a995dd4b6e9e509c8a1f5a998b7649227"
+  license "GPL-2.0-with-classpath-exception"
   head "https://abcl.org/svn/trunk/abcl/", :using => :svn
 
   bottle do
