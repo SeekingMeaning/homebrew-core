@@ -3,6 +3,7 @@ class Abcmidi < Formula
   homepage "https://ifdo.ca/~seymour/runabc/top.html"
   url "https://ifdo.ca/~seymour/runabc/abcMIDI-2020.07.14.zip"
   sha256 "09f2839f9ec171e5c8253998d510dbd16959e68f98b74fa8a18f22f4ffeab837"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
