@@ -3,7 +3,7 @@ class FbClient < Formula
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.0.4.tar.gz"
   sha256 "330c9593afd2b2480162786992d0bfb71be25faf105f3c24c71d514b58ee0cd3"
-  revision 2
+  revision 3
   head "https://git.server-speed.net/users/flo/fb", using: :git
 
   bottle do
@@ -14,7 +14,7 @@ class FbClient < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "curl-openssl"
+  depends_on "curl"
   depends_on "python@3.8"
 
   conflicts_with "findbugs", because: "findbugs and fb-client both install a `fb` binary"
@@ -22,6 +22,20 @@ class FbClient < Formula
   resource "pycurl" do
     url "https://files.pythonhosted.org/packages/ef/05/4b773f74f830a90a326b06f9b24e65506302ab049e825a3c0b60b1a6e26a/pycurl-7.43.0.5.tar.gz"
     sha256 "ec7dd291545842295b7b56c12c90ffad2976cc7070c98d7b1517b7b6cd5994b3"
+
+    # Required for MultiSSL patch below
+    # https://github.com/pycurl/pycurl/pull/630
+    patch do
+      url "https://github.com/pycurl/pycurl/commit/8b186617241817ca0ecd31a8856561519b9a7696.patch?full_index=1"
+      sha256 "40412d4554adc2b30ee2be0ac128d5408b40f8d66acea0d318b2559b7c0d2eab"
+    end
+
+    # Handle MultiSSL
+    # https://github.com/pycurl/pycurl/pull/639
+    patch do
+      url "https://github.com/pycurl/pycurl/commit/e01ba85cd1de5bbf0c07c564ef6b61fecc7b5ecf.patch?full_index=1"
+      sha256 "4289efe639d39d5dc858bab6e77cbb99efd226eab3616439a2f62001540b2f35"
+    end
   end
 
   resource "pyxdg" do
@@ -40,7 +54,7 @@ class FbClient < Formula
     resource("pycurl").stage do
       system Formula["python@3.8"].opt_bin/"python3",
              *Language::Python.setup_install_args(libexec/"vendor"),
-             "--curl-config=#{Formula["curl-openssl"].opt_bin}/curl-config"
+             "--curl-config=#{Formula["curl"].opt_bin}/curl-config"
     end
 
     resource("pyxdg").stage do
