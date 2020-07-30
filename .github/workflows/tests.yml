@@ -15,7 +15,7 @@ jobs:
           HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
           brew update-reset "$HOMEBREW_REPOSITORY"
 
-          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/${{github.repository}}"
+          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
           git -C "$HOMEBREW_CORE_REPOSITORY" remote set-url origin "https://github.com/$GITHUB_REPOSITORY"
         else
           HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
@@ -23,7 +23,7 @@ jobs:
           sudo mkdir -p "$HOMEBREW_PREFIX"
           sudo git clone --depth=1 https://github.com/Homebrew/brew "$HOMEBREW_REPOSITORY"
 
-          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/${{github.repository}}"
+          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
           sudo mkdir -p "$HOMEBREW_CORE_REPOSITORY"
           git -C "$HOMEBREW_CORE_REPOSITORY" init
           git -C "$HOMEBREW_CORE_REPOSITORY" remote add origin "https://github.com/$GITHUB_REPOSITORY"
@@ -96,7 +96,7 @@ jobs:
 
       - name: Set up Git repository
         run: |
-          cd $(brew --repo ${{github.repository}})
+          cd $(brew --repo homebrew/core)
           git clean -ffdx
           git fetch --prune --force origin master
           git fetch --prune --force origin ${{github.sha}}
