@@ -15,7 +15,7 @@ jobs:
           HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
           brew update-reset "$HOMEBREW_REPOSITORY"
 
-          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
+          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/${{github.repository}}"
           git -C "$HOMEBREW_CORE_REPOSITORY" remote set-url origin "https://github.com/$GITHUB_REPOSITORY"
         else
           HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
@@ -23,7 +23,7 @@ jobs:
           sudo mkdir -p "$HOMEBREW_PREFIX"
           sudo git clone --depth=1 https://github.com/Homebrew/brew "$HOMEBREW_REPOSITORY"
 
-          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
+          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/${{github.repository}}"
           sudo mkdir -p "$HOMEBREW_CORE_REPOSITORY"
           git -C "$HOMEBREW_CORE_REPOSITORY" init
           git -C "$HOMEBREW_CORE_REPOSITORY" remote add origin "https://github.com/$GITHUB_REPOSITORY"
@@ -123,10 +123,10 @@ jobs:
           rm bottles/steps_output.txt
 
       - name: Upload logs
-        if: failure()
+        if: always()
         uses: actions/upload-artifact@v2
         with:
-          name: logs (10.15)
+          name: logs (macOS-latest)
           path: bottles/logs
 
       - name: Delete logs and home
