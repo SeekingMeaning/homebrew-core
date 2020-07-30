@@ -5,10 +5,7 @@ on:
   pull_request: []
 jobs:
   tap_syntax:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest]
+    runs-on: macOS-latest
     steps:
     - name: Set up Homebrew
       id: set-up-homebrew
@@ -81,10 +78,8 @@ jobs:
     needs: tap_syntax
     if: github.event_name == 'pull_request'
     strategy:
-      matrix:
-        version: [10.15, 10.14, 10.13]
       fail-fast: false
-    runs-on: ${{ matrix.version }}
+    runs-on: macOS-latest
     timeout-minutes: 4320
     env:
       HOMEBREW_GIT_NAME: BrewTestBot
@@ -131,7 +126,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v2
         with:
-          name: logs (${{ matrix.version }})
+          name: logs (10.15)
           path: bottles/logs
 
       - name: Delete logs and home
