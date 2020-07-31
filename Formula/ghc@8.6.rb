@@ -7,6 +7,12 @@ class GhcAT86 < Formula
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-src.tar.xz"
   sha256 "4d4aa1e96f4001b934ac6193ab09af5d6172f41f5a5d39d8e43393b9aafee361"
+  # GHC's codebase is mostly distributed under a 3-clause BSD license.
+  # Exceptions to this are:
+  # - gmp/gmp-*.tar.gz, which is LGPL
+  # - All the libraries, each of which has its own license. To find out the
+  #   license for a library, check the license field of its .cabal file. The
+  #   libraries shipped with GHC are also under a 2- or 3-clause BSD license.
   license "BSD-3-Clause"
   revision 1
 
