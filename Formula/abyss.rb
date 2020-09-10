@@ -6,6 +6,11 @@ class Abyss < Formula
   license "GPL-3.0"
   revision 1
 
+  livecheck do
+    url "https://github.com/bcgsc/abyss/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     cellar :any
     sha256 "0fa7a8feaadb399933d3322c5df54136f47681481a26ec68ad535ff13cbd1f81" => :catalina
