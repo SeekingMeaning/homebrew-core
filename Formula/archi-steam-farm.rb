@@ -5,6 +5,11 @@ class ArchiSteamFarm < Formula
   sha256 "1a9f50c3cf2eb00e5148bc21a209b0c7c275b6c36c8cae8b4d9b2469bee7ff33"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://github.com/JustArchi/ArchiSteamFarm/releases/latest"
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle :unneeded
 
   depends_on "mono"
