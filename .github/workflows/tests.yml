@@ -71,6 +71,13 @@ jobs:
           cd bottles
           brew test-bot --only-formulae
 
+      - name: Upload brew test-bot --only-formulae failures
+        if: always()
+        uses: actions/upload-artifact@main
+        with:
+          name: failures (${{ matrix.version }})
+          path: bottles/steps_output.txt
+
       - name: Output brew test-bot --only-formulae failures
         if: always()
         run: |
@@ -112,3 +119,68 @@ jobs:
       - name: Post Cleanup
         if: always()
         run: rm -rvf bottles
+
+  comment:
+    needs: tests
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download brew test-bot --only-formulae failures (10.15)
+        uses: actions/download-artifact@v2
+        with:
+          name: failures (10.15)
+          path: '10.15'
+
+      - name: Download brew test-bot --only-formulae failures (10.14)
+        uses: actions/download-artifact@v2
+        with:
+          name: failures (10.14)
+          path: '10.14'
+
+      - name: Download brew test-bot --only-formulae failures (10.13)
+        uses: actions/download-artifact@v2
+        with:
+          name: failures (10.13)
+          path: '10.13'
+
+      - name: Delete brew test-bot --only-formulae failures (10.15)
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: failures (10.15)
+
+      - name: Delete brew test-bot --only-formulae failures (10.14)
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: failures (10.14)
+
+      - name: Delete brew test-bot --only-formulae failures (10.13)
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: failures (10.13)
+
+      - name: Check for failures
+        id: check-failures
+        run: |
+          if grep -q 'Error: [[:digit:]]* failed steps!' */steps_output.txt; then
+            echo "::set-output name=tests-failed::true"
+          else
+            echo "::set-output name=tests-failed::false"
+          fi
+
+      - name: Post comment on failure
+        if: steps.check-failures.outputs.tests-failed
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          issue: ${{github.event.inputs.pull_request}}
+          body: ':warning: @${{github.actor}} tests [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
+          bot_body: ':warning: Tests [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
+          bot: BrewTestBot
+
+      - name: Dismiss approvals on failure
+        if: steps.check-failures.outputs.tests-failed
+        uses: Homebrew/actions/dismiss-approvals@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          pr: ${{github.event.inputs.pull_request}}
+          message: 'tests failed'
