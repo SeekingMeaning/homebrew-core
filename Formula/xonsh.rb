@@ -3,8 +3,8 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "https://xon.sh/"
-  url "https://github.com/xonsh/xonsh/archive/0.9.21.tar.gz"
-  sha256 "b6f6a0fc8b388480bbf7aa1900dc97edf63d100a7dd572be8e5031b754e1c9f5"
+  url "https://github.com/xonsh/xonsh/archive/0.9.22.tar.gz"
+  sha256 "ddef670edd172ea760bdff34dde082db9fa3057bb1b87a5694385295158449db"
   license "BSD-2-Clause-Views"
   head "https://github.com/xonsh/xonsh.git"
 
@@ -19,15 +19,17 @@ class Xonsh < Formula
 
   # Resources based on `pip3 install xonsh[ptk,pygments,proctitle]`
   # See https://xon.sh/osx.html#dependencies
+  # To update, run:
+  #   brew update-python-resources --package-name='xonsh[ptk,pygments,proctitle]' xonsh
 
-  resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/c4/c6/03da4efaf73f0cb5a34957fdac12046eb8d8e81618bad6f60464215b829a/prompt_toolkit-3.0.6.tar.gz"
-    sha256 "7630ab85a23302839a0f26b31cc24f518e6155dea1ed395ea61b42c45941b6a6"
+  resource "prompt-toolkit" do
+    url "https://files.pythonhosted.org/packages/18/0f/ae4b350b969dc1d8ecfcbdc1060d59ff025336a23f153ece49aa662a1309/prompt_toolkit-3.0.7.tar.gz"
+    sha256 "822f4605f28f7d2ba6b0b09a31e25e140871e96364d1d377667b547bb3bf4489"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+    url "https://files.pythonhosted.org/packages/e2/07/25bd93c9c0175adfa5fb1513a20b25e7dd6c9a67c155e19b11b5f3662104/Pygments-2.7.1.tar.gz"
+    sha256 "926c3f319eda178d1bd90851e4317e6d8cdb5e292a3386aac9bd75eca29cf9c7"
   end
 
   resource "setproctitle" do
