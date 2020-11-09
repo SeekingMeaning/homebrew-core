@@ -21,6 +21,7 @@ class Feh < Formula
   depends_on "libexif"
   depends_on "libx11"
   depends_on "libxinerama"
+  depends_on "libxt"
 
   def install
     system "make", "PREFIX=#{prefix}", "verscmp=0", "exif=1"
