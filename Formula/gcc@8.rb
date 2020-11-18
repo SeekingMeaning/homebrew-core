@@ -44,7 +44,7 @@ class GccAT8 < Formula
     # to prevent their build.
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
-    # We avoiding building:
+    # We avoid building:
     #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
     #  - Go, currently not supported on macOS
     #  - BRIG
