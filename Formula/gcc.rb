@@ -56,7 +56,7 @@ class Gcc < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    # We avoiding building:
+    # We avoid building:
     #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
     #  - Go, currently not supported on macOS
     #  - BRIG
