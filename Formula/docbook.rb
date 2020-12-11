@@ -77,6 +77,10 @@ class Docbook < Formula
   end
 
   def post_install
+    on_linux do
+      ENV["PATH"] = "#{ENV["PATH"]}:#{Formula["libxml2"].opt_bin}"
+    end
+
     etc_catalog = etc/"xml/catalog"
     ENV["XML_CATALOG_FILES"] = etc_catalog
 
