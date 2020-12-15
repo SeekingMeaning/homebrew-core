@@ -28,7 +28,7 @@ class Fq < Formula
 
   test do
     pid = fork { exec sbin/"fqd", "-D", "-c", testpath/"test.sqlite" }
-    sleep 1
+    sleep 10
     begin
       assert_match /Circonus Fq Operational Dashboard/, shell_output("curl 127.0.0.1:8765")
     ensure
