@@ -35,6 +35,15 @@ class Libffi < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", *extra_args
     system "make", "install"
+
+    # Move lib64/* to lib/ on Linux
+    on_linux do
+      lib64 = Pathname.new "#{lib}64"
+      if lib64.directory?
+        mv Dir[lib64/"*"], lib
+        rmdir lib64
+      end
+    end
   end
 
   test do
