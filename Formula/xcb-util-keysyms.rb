@@ -21,7 +21,6 @@ class XcbUtilKeysyms < Formula
   end
 
   depends_on "pkg-config" => [:build, :test]
-  depends_on "util-macros" => :build
   depends_on "libxcb"
 
   def install
@@ -36,6 +35,6 @@ class XcbUtilKeysyms < Formula
   end
 
   test do
-    assert_match "-I#{include}", shell_output("pkg-config --cflags xcb-keysyms").chomp
+    assert_match "-I#{include}", shell_output("pkg-config --cflags xcb-keysyms")
   end
 end
