@@ -12,11 +12,20 @@ class XcbUtilKeysyms < Formula
     sha256 "a6abcd84a8ded46e939d3551642e08a87fddb9fd8a2744071351086ddd35170c" => :mojave
   end
 
+  head do
+    url "https://gitlab.freedesktop.org/xorg/lib/libxcb-keysyms.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => [:build, :test]
   depends_on "util-macros" => :build
   depends_on "libxcb"
 
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
