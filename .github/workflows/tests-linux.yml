@@ -16,6 +16,7 @@ on:
       - "Formula/libnetfilter-queue.rb"
       - "Formula/libnfnetlink.rb"
       - "Formula/libnsl.rb"
+      - "Formula/libomxil-bellagio.rb"
       - "Formula/libpciaccess.rb"
       - "Formula/libseccomp.rb"
       - "Formula/libtirpc.rb"
