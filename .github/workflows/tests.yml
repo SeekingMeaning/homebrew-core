@@ -7,12 +7,14 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_CHANGE_ARCH_TO_ARM: 1
 jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     outputs:
       run-tests: ${{ steps.check-labels.outputs.result }}
+      run-arm-tests: ${{ steps.check-arm-label.outputs.result }}
     env:
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
     steps:
@@ -60,6 +62,24 @@ jobs:
           }
           console.log('CI-syntax-only label found. Skipping tests.')
 
+    - name: Check for CI-skip-arm label
+      id: check-arm-label
+      uses: actions/github-script@v3
+      if: github.event_name == 'pull_request'
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const { data: { labels: labels } } = await github.pulls.get({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number
+          })
+          if (!labels.map(label => label.name).includes('CI-skip-arm')) {
+            console.log('No CI-skip-arm label found. Running ARM tests.')
+            return true
+          }
+          console.log('CI-skip-arm label found. Skipping ARM tests.')
+
   tests:
     needs: tap_syntax
     if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.run-tests
@@ -104,6 +124,76 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: logs (${{ matrix.version }})
+          path: bottles/logs
+
+      - name: Delete logs and home
+        if: always()
+        run: |
+          rm -rvf bottles/logs
+          rm -rvf bottles/home
+
+      - name: Count bottles
+        id: bottles
+        if: always()
+        run: |
+          cd bottles
+          count=$(ls *.json | wc -l | xargs echo -n)
+          echo "$count bottles"
+          echo "::set-output name=count::$count"
+
+      - name: Upload bottles
+        if: always() && steps.bottles.outputs.count > 0
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: bottles
+
+      - run: brew test-bot --only-cleanup-after
+        if: always()
+
+      - name: Post Cleanup
+        if: always()
+        run: rm -rvf bottles
+
+  tests_11-arm:
+    needs: tap_syntax
+    if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.run-tests && needs.tap_syntax.outputs.run-arm-tests
+    strategy:
+      fail-fast: false
+    runs-on: 11-arm
+    timeout-minutes: 4320
+    env:
+      PATH: '/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+      HOMEBREW_DEVELOPER: 1
+      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - run: brew test-bot --only-cleanup-before
+
+      - run: brew test-bot --only-setup
+
+      - name: Run brew test-bot --only-formulae
+        run: |
+          mkdir bottles
+          cd bottles
+          brew test-bot --only-formulae
+
+      - name: Output brew test-bot --only-formulae failures
+        if: always()
+        run: |
+          cat bottles/steps_output.txt
+          rm bottles/steps_output.txt
+
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: logs (11-arm)
           path: bottles/logs
 
       - name: Delete logs and home
