@@ -54,7 +54,7 @@ class Abyss < Formula
 
   test do
     testpath.install resource("testdata")
-    system "#{bin}/abyss-pe", "k=25", "name=ts", "in=reads1.fastq reads2.fastq"
+    system "#{bin}/abyss-pe", "unitigs", "scaffolds", "k=25", "name=ts", "in=reads1.fastq reads2.fastq"
     system "#{bin}/abyss-fac", "ts-unitigs.fa"
   end
 end
