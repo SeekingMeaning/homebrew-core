@@ -23,7 +23,10 @@ class Webp < Formula
 
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "libtiff"
+
+  on_macos do
+    depends_on "libtiff"
+  end
 
   def install
     system "./autogen.sh" if build.head?
