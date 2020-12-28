@@ -234,7 +234,7 @@ class Mikutter < Formula
       GTK_PATH:              HOMEBREW_PREFIX/"lib/gtk-2.0",
     }
 
-    (bin/"mikutter").write_env_script Formula["ruby@2.6"].opt_bin/"ruby", "#{libexec}/mikutter.rb", env
+    (bin/"mikutter").write_env_script Formula["ruby@2.7"].opt_bin/"ruby", "#{libexec}/mikutter.rb", env
     pkgshare.install_symlink libexec/"core/skin"
 
     # enable other formulae to install plugins
