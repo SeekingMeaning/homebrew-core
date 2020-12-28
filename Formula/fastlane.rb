@@ -31,7 +31,7 @@ class Fastlane < Formula
 
     (bin/"fastlane").write <<~EOS
       #!/bin/bash
-      export PATH="#{Formula["ruby@2.6"].opt_bin}:#{libexec}/bin:$PATH"
+      export PATH="#{Formula["ruby@2.7"].opt_bin}:#{libexec}/bin:$PATH"
       export FASTLANE_INSTALLED_VIA_HOMEBREW="true"
       GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
         exec "#{libexec}/bin/fastlane" "$@"
