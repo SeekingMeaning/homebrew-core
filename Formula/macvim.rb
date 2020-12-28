@@ -28,7 +28,7 @@ class Macvim < Formula
 
   def install
     # Fix error: '__declspec' attributes are not enabled
-    ENV.append_to_cflags "-fdeclspec"
+    ENV.append_to_cflags "-fdeclspec" if ENV.compiler == :clang
 
     # Avoid issues finding Ruby headers
     ENV.delete("SDKROOT")
