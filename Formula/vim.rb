@@ -2,10 +2,9 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.2.2200.tar.gz"
-  sha256 "bb2025a2d8e271be0c73483d754272b86a95261090a5e9c2e27c1f6ca8ea3c9c"
+  url "https://github.com/vim/vim/archive/v8.2.2241.tar.gz"
+  sha256 "e12bcadebe5db7d43f50a437032e91b7dfff4be58feb7f3cdad7b5960f654c53"
   license "Vim"
-  revision 2
   head "https://github.com/vim/vim.git"
 
   bottle do
@@ -30,9 +29,6 @@ class Vim < Formula
     because: "vim and macvim both install vi* binaries"
 
   def install
-    # Fix error: '__declspec' attributes are not enabled
-    ENV.append_to_cflags "-fdeclspec"
-
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
