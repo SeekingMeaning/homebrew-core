@@ -5,6 +5,11 @@ class LibunwindHeaders < Formula
   sha256 "5ca0fcb257a33eb376b19cd26ddc5f34d00f9099c8ffb462d7484bfdca654d7d"
   license "APSL-2.0"
 
+  livecheck do
+    url "https://opensource.apple.com/tarballs/libunwind/"
+    regex(/href=.*?libunwind[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle :unneeded
 
   keg_only :shadowed_by_macos, "macOS provides libunwind.dylib (but nothing else)"
