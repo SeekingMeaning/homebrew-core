@@ -22,8 +22,8 @@ class Dovecot < Formula
   uses_from_macos "sqlite"
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.9.tar.gz"
-    sha256 "36da68aae5157b83e21383f711b8977e5b6f5477f369f71e7e22e76a738bbd05"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.13.tar.gz"
+    sha256 "911fe566da5b638eab1b11105314300bc9049cc3832d4bd2aed44c265013bf17"
   end
 
   def install
