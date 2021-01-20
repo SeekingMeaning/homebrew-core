@@ -1,10 +1,9 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/v6.14.6.tar.gz"
-  sha256 "fa61c55735a4911f36001a98aa2f5df1ffe4b019c492133d0019f912191209ce"
+  url "https://github.com/facebook/rocksdb/archive/v6.15.2.tar.gz"
+  sha256 "79d554d8a109575f80d827026ecd2fca50b7f79b0af3d0c376afb755db465d4e"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
-  revision 1
 
   bottle do
     cellar :any
@@ -29,17 +28,33 @@ class Rocksdb < Formula
     sha256 "6fb59cd640ed8c39692855115b72e8aa8db50a7aa3842d53237e096e19f88fc1"
   end
 
+  # Fix compilation on Apple Silicon
+  # https://github.com/facebook/rocksdb/pull/7714
+  patch do
+    url "https://github.com/facebook/rocksdb/commit/ee4bd4780b321ddb5f92a0f4eb956f2a2ebd60dc.patch?full_index=1"
+    sha256 "9a5b5adfb449e717859e15346d8e85ecdf7d0ae30683bb94787d6704c9b769d1"
+  end
+
+  # Fix CMakeLists.txt for Apple Silicon
+  # https://github.com/facebook/rocksdb/pull/7883
+  patch do
+    url "https://github.com/facebook/rocksdb/commit/41ca59a774b752ce5ed9bbae93d64d14eb7c0f54.patch?full_index=1"
+    sha256 "86f717081dd9ba248b16a656183da67e2410d58c6ce00bd379e21cd7264cb6b9"
+  end
+
   def install
     ENV.cxx11
-    args = std_cmake_args
-    args << "-DPORTABLE=ON"
-    args << "-DUSE_RTTI=ON"
-    args << "-DWITH_BENCHMARK_TOOLS=OFF"
-    args << "-DWITH_BZ2=ON"
-    args << "-DWITH_LZ4=ON"
-    args << "-DWITH_SNAPPY=ON"
-    args << "-DWITH_ZLIB=ON"
-    args << "-DWITH_ZSTD=ON"
+    args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_LIBDIR"] } + %W[
+      -DPORTABLE=ON
+      -DUSE_RTTI=ON
+      -DWITH_BENCHMARK_TOOLS=OFF
+      -DWITH_BZ2=ON
+      -DWITH_LZ4=ON
+      -DWITH_SNAPPY=ON
+      -DWITH_ZLIB=ON
+      -DWITH_ZSTD=ON
+      -DCMAKE_INSTALL_LIBDIR=#{lib}
+    ]
 
     # build regular rocksdb
     system "cmake", ".", *args
@@ -57,10 +72,12 @@ class Rocksdb < Formula
     bin.install "db_stress_tool/db_stress" => "rocksdb_stress"
 
     # build rocksdb_lite
-    args << "-DROCKSDB_LITE=ON"
-    args << "-DARTIFACT_SUFFIX=_lite"
-    args << "-DWITH_CORE_TOOLS=OFF"
-    args << "-DWITH_TOOLS=OFF"
+    args += %w[
+      -DROCKSDB_LITE=ON
+      -DARTIFACT_SUFFIX=_lite
+      -DWITH_CORE_TOOLS=OFF
+      -DWITH_TOOLS=OFF
+    ]
     system "make", "clean"
     system "cmake", ".", *args
     system "make", "install"
