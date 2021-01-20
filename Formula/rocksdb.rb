@@ -54,6 +54,10 @@ class Rocksdb < Formula
       -DWITH_ZLIB=ON
       -DWITH_ZSTD=ON
       -DCMAKE_INSTALL_LIBDIR=#{lib}
+      -DCMAKE_INSTALL_RPATH=#{lib}
+      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+      -DCMAKE_MACOSX_RPATH=ON
+      -DCMAKE_INSTALL_NAME_DIR=#{lib}
     ]
 
     # build regular rocksdb
