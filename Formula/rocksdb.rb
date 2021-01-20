@@ -61,19 +61,21 @@ class Rocksdb < Formula
     ]
 
     # build regular rocksdb
-    system "cmake", ".", *args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make", "install"
 
-    cd "tools" do
-      bin.install "sst_dump" => "rocksdb_sst_dump"
-      bin.install "db_sanity_test" => "rocksdb_sanity_test"
-      bin.install "write_stress" => "rocksdb_write_stress"
-      bin.install "ldb" => "rocksdb_ldb"
-      bin.install "db_repl_stress" => "rocksdb_repl_stress"
-      bin.install "rocksdb_dump"
-      bin.install "rocksdb_undump"
+      cd "tools" do
+        bin.install "sst_dump" => "rocksdb_sst_dump"
+        bin.install "db_sanity_test" => "rocksdb_sanity_test"
+        bin.install "write_stress" => "rocksdb_write_stress"
+        bin.install "ldb" => "rocksdb_ldb"
+        bin.install "db_repl_stress" => "rocksdb_repl_stress"
+        bin.install "rocksdb_dump"
+        bin.install "rocksdb_undump"
+      end
+      bin.install "db_stress_tool/db_stress" => "rocksdb_stress"
     end
-    bin.install "db_stress_tool/db_stress" => "rocksdb_stress"
 
     # build rocksdb_lite
     args += %w[
@@ -82,9 +84,10 @@ class Rocksdb < Formula
       -DWITH_CORE_TOOLS=OFF
       -DWITH_TOOLS=OFF
     ]
-    system "make", "clean"
-    system "cmake", ".", *args
-    system "make", "install"
+    mkdir "build_lite" do
+      system "cmake", "..", *args
+      system "make", "install"
+    end
   end
 
   test do
