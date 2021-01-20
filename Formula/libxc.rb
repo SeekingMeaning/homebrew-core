@@ -1,10 +1,9 @@
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
   homepage "https://tddft.org/programs/libxc/"
-  url "https://gitlab.com/libxc/libxc/-/archive/4.3.4/libxc-4.3.4.tar.bz2"
-  sha256 "0efe8b33d151de8787e33c4ba8e2161ffb9da978753f3bd12c5c0a018e7d3ef5"
+  url "https://gitlab.com/libxc/libxc/-/archive/5.1.0/libxc-5.1.0.tar.bz2"
+  sha256 "36136909c919ef21c5605cbaec070a0b7b5cc5819cba26b6a40fe45b82e828ea"
   license "MPL-2.0"
-  revision 1
 
   bottle do
     cellar :any
@@ -45,7 +44,6 @@ class Libxc < Formula
 
     (testpath/"test.f90").write <<~EOS
       program lxctest
-        use xc_f90_types_m
         use xc_f90_lib_m
       end program lxctest
     EOS
