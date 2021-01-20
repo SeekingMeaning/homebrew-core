@@ -3,10 +3,9 @@ class Bear < Formula
 
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.4.4.tar.gz"
-  sha256 "5e95c9fe24714bcb98b858f0f0437aff76ad96b1d998940c0684c3a9d3920e82"
+  url "https://github.com/rizsotto/Bear/archive/3.0.7.tar.gz"
+  sha256 "90004c7f8c83b81b3c6d9a1dced83e6cc212f60a1d1434b934ae0cf0045b3193"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
