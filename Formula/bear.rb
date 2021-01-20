@@ -18,6 +18,7 @@ class Bear < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "python@3.9"
 
   def install
