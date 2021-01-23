@@ -4,7 +4,7 @@ class Cp2k < Formula
   url "https://github.com/cp2k/cp2k/releases/download/v6.1.0/cp2k-6.1.tar.bz2"
   sha256 "af803558e0a6b9e9d9ce8a3ab955ba32bacd179922455424e061c82c9fefa34b"
   license "GPL-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "034084d10f7a0e4a59b1532263ac7b06187ef1ce051182390eaf17ccbe0ce4b6" => :big_sur
