@@ -1,9 +1,11 @@
 class Ioctl < Formula
   desc "Command-line interface for interacting with the IoTeX blockchain"
   homepage "https://docs.iotex.io/developer/get-started/ioctl-install.html"
-  url "https://github.com/iotexproject/iotex-core/archive/v1.1.4.tar.gz"
-  sha256 "8bc4aca80ba4a51d24aa706327600150c7fb632d76f59da0e1633076b75d420a"
+  url "https://github.com/iotexproject/iotex-core.git",
+    tag:      "v1.1.4",
+    revision: "3ac2f83245c1acc48c2849ed21f9c2fa8184099f"
   license "Apache-2.0"
+  head "https://github.com/iotexproject/iotex-core.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +17,16 @@ class Ioctl < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "ioctl"
-    bin.install "bin/ioctl"
+    project = "github.com/iotexproject/iotex-core/pkg/version"
+    ldflags = %W[
+      -s -w
+      -X #{project}.PackageVersion=#{version}
+      -X #{project}.PackageCommitID=#{Utils.git_head}
+      -X #{project}.GitStatus=#{Utils.safe_popen_read("git", "status", "--porcelain").chomp}
+      -X #{project}.GoVersion=#{Formula["go"].version}
+      -X #{project}.BuildTime=#{Utils.safe_popen_read("date", "+%F-%Z/%T").chomp}
+    ]
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "./tools/ioctl"
   end
 
   test do
