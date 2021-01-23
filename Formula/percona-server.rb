@@ -102,6 +102,9 @@ class PerconaServer < Formula
     # See: https://github.com/Homebrew/homebrew/issues/4975
     rm_rf prefix/"data"
 
+    # Don't install symlinks to libraries in bin directory
+    rm_f Dir["#{bin}/#{shared_library("*")}"]
+
     # Fix up the control script and link into bin.
     inreplace "#{prefix}/support-files/mysql.server",
               /^(PATH=".*)(")/,
