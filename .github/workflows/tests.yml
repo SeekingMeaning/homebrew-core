@@ -154,6 +154,8 @@ jobs:
           name: bottles (failed)
           path: bottles/failed
 
+      # Must be run before the `Upload bottles` step so that failed
+      # bottles are not included in the `bottles` artifact.
       - name: Delete failed bottles
         if: always()
         run: rm -rvf bottles/failed
