@@ -21,27 +21,18 @@ class Bear < Formula
   depends_on "pkg-config" => :build
   depends_on "fmt"
   depends_on "grpc"
+  depends_on macos: :catalina
   depends_on "nlohmann-json"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
   depends_on "spdlog"
   depends_on "sqlite"
 
-  uses_from_macos "llvm", since: :catalina
-
   def install
     args = std_cmake_args + %w[
       -DENABLE_UNIT_TESTS=OFF
       -DENABLE_FUNC_TESTS=OFF
     ]
-
-    if MacOS.version <= :mojave
-      # std::filesystem is not available on Clang supplied with Xcode < 11
-      # std::filesystem::path is not available in system C++ dylib for macOS < 10.15
-      # https://github.com/rizsotto/Bear/blob/#{version}/INSTALL.md#platform-macos
-      ENV["CC"] = Formula["llvm"].opt_bin/"clang"
-      ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
-    end
 
     mkdir "build" do
       system "cmake", "..", *args
