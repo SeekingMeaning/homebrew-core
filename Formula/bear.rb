@@ -23,7 +23,6 @@ class Bear < Formula
   depends_on "grpc"
   depends_on macos: :catalina
   depends_on "nlohmann-json"
-  depends_on "openssl@1.1"
   depends_on "python@3.9"
   depends_on "spdlog"
   depends_on "sqlite"
