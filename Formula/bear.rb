@@ -24,6 +24,7 @@ class Bear < Formula
   def install
     args = std_cmake_args + %W[
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DCMAKE_CXX_STANDARD=17
     ]
     system "cmake", ".", *args
     system "make", "install"
