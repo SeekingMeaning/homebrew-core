@@ -37,6 +37,13 @@ class Bear < Formula
       -DENABLE_FUNC_TESTS=OFF
     ]
 
+    if MacOS.version <= :mojave
+      args += %W[
+        -DCMAKE_C_COMPILER=#{Formula["llvm"].opt_bin}/clang
+        -DCMAKE_CXX_COMPILER=#{Formula["llvm"].opt_bin}/clang++
+      ]
+    end
+
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "all"
@@ -47,7 +54,14 @@ class Bear < Formula
   end
 
   test do
-    system "#{bin}/bear", "true"
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      int main() {
+        printf("hello, world!\\n");
+        return 0;
+      }
+    EOS
+    system "#{bin}/bear", "--", "clang", "test.c"
     assert_predicate testpath/"compile_commands.json", :exist?
   end
 end
