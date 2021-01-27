@@ -30,7 +30,7 @@ class Bear < Formula
   uses_from_macos "llvm", since: :catalina
 
   def install
-    args = std_cmake_args + %W[
+    args = std_cmake_args + %w[
       -DENABLE_UNIT_TESTS=OFF
       -DENABLE_FUNC_TESTS=OFF
     ]
