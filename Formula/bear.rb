@@ -19,15 +19,29 @@ class Bear < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "fmt"
+  depends_on "grpc"
+  depends_on "nlohmann-json"
+  depends_on "openssl@1.1"
   depends_on "python@3.9"
+  depends_on "spdlog"
+  depends_on "sqlite"
+
+  uses_from_macos "llvm", since: :catalina
 
   def install
     args = std_cmake_args + %W[
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -DCMAKE_CXX_STANDARD=17
+      -DENABLE_UNIT_TESTS=OFF
+      -DENABLE_FUNC_TESTS=OFF
     ]
-    system "cmake", ".", *args
-    system "make", "install"
+
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make", "all"
+      system "make", "install"
+    end
 
     rewrite_shebang detected_python_shebang, bin/"bear"
   end
