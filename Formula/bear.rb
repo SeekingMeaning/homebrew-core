@@ -31,17 +31,16 @@ class Bear < Formula
 
   def install
     args = std_cmake_args + %W[
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
-      -DCMAKE_CXX_STANDARD=17
       -DENABLE_UNIT_TESTS=OFF
       -DENABLE_FUNC_TESTS=OFF
     ]
 
     if MacOS.version <= :mojave
-      args += %W[
-        -DCMAKE_C_COMPILER=#{Formula["llvm"].opt_bin}/clang
-        -DCMAKE_CXX_COMPILER=#{Formula["llvm"].opt_bin}/clang++
-      ]
+      # std::filesystem is not available on Clang supplied with Xcode < 11
+      # std::filesystem::path is not available in system C++ dylib for macOS < 10.15
+      # https://github.com/rizsotto/Bear/blob/#{version}/INSTALL.md#platform-macos
+      ENV["CC"] = Formula["llvm"].opt_bin/"clang"
+      ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
     end
 
     mkdir "build" do
