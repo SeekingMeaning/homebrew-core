@@ -8,11 +8,10 @@ class Localstack < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4bf82e1a3600eaf2ac465c71a62b72e08a54604fab0e46ae570e4ffc36fef94a" => :big_sur
-    sha256 "c2d3c8495ae38095fbdd26c62ae3d3d23608557a42bfc5be91f285f97e0b9326" => :arm64_big_sur
-    sha256 "ecd07745ad954b797516b5267c7dcdc4da0d07c82876ccc1cedf02904acc86f9" => :catalina
-    sha256 "5d9ba4f3acb532ef0c3e53fd712de8ec7e707cd13da8111cbd618b822f2edd29" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "4bf82e1a3600eaf2ac465c71a62b72e08a54604fab0e46ae570e4ffc36fef94a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c2d3c8495ae38095fbdd26c62ae3d3d23608557a42bfc5be91f285f97e0b9326"
+    sha256 cellar: :any_skip_relocation, catalina: "ecd07745ad954b797516b5267c7dcdc4da0d07c82876ccc1cedf02904acc86f9"
+    sha256 cellar: :any_skip_relocation, mojave: "5d9ba4f3acb532ef0c3e53fd712de8ec7e707cd13da8111cbd618b822f2edd29"
   end
 
   depends_on "docker" => :test

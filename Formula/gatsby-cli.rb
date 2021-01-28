@@ -13,11 +13,10 @@ class GatsbyCli < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "05cba87201abce99ca205f99350bc38219543fbf9c5ffac3741336ab143113af" => :big_sur
-    sha256 "4c3a983a5eb9ed64c484bdc04aff7201a273be7abd76daeaa8e33366a38789ff" => :arm64_big_sur
-    sha256 "ad5e7dcc0760ceaa0d960a28c5a5a70c80bc7eba8b720f691a15887bef81236a" => :catalina
-    sha256 "36426930e2a3243a82f62297703966babd11de53d9c4703da5bd90feb513316b" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "05cba87201abce99ca205f99350bc38219543fbf9c5ffac3741336ab143113af"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4c3a983a5eb9ed64c484bdc04aff7201a273be7abd76daeaa8e33366a38789ff"
+    sha256 cellar: :any_skip_relocation, catalina: "ad5e7dcc0760ceaa0d960a28c5a5a70c80bc7eba8b720f691a15887bef81236a"
+    sha256 cellar: :any_skip_relocation, mojave: "36426930e2a3243a82f62297703966babd11de53d9c4703da5bd90feb513316b"
   end
 
   depends_on "node"

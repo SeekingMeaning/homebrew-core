@@ -13,11 +13,10 @@ class ContentfulCli < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1a40a28e476196f6d62218a6ac42af76b8f6907a0f2120a0b038d0617b7181cb" => :big_sur
-    sha256 "5c51dfa960a60dc69f5ab37247564714bca07feb3e22a9a4d6de914fa56f6405" => :arm64_big_sur
-    sha256 "c570fcf360768cb6ddcb0ba62272f6938bfe6767e132ae555e4876d5006d5e74" => :catalina
-    sha256 "25674be7172d66702ec04fe4628233079530990ba606dc53e77075825725854b" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "1a40a28e476196f6d62218a6ac42af76b8f6907a0f2120a0b038d0617b7181cb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c51dfa960a60dc69f5ab37247564714bca07feb3e22a9a4d6de914fa56f6405"
+    sha256 cellar: :any_skip_relocation, catalina: "c570fcf360768cb6ddcb0ba62272f6938bfe6767e132ae555e4876d5006d5e74"
+    sha256 cellar: :any_skip_relocation, mojave: "25674be7172d66702ec04fe4628233079530990ba606dc53e77075825725854b"
   end
 
   depends_on "node"

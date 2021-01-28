@@ -11,11 +11,10 @@ class PangommAT242 < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "5c9e14b2e7c96d10ffc4411eae99ce059578163bdc2230aaaf2f122c2ed1f816" => :big_sur
-    sha256 "dae1ce875ec88688f1235bc0587c272232017a9380b25b742db10964c158190c" => :arm64_big_sur
-    sha256 "98a193de21bc07a5e39cadd4e4967f30fd19e06c44c46ef24f0d4b8e184bec59" => :catalina
-    sha256 "cf3d702b8b506abcbcce428435b16f78a0ba75c2865094e9b391a8c2622af022" => :mojave
+    sha256 cellar: :any, big_sur: "5c9e14b2e7c96d10ffc4411eae99ce059578163bdc2230aaaf2f122c2ed1f816"
+    sha256 cellar: :any, arm64_big_sur: "dae1ce875ec88688f1235bc0587c272232017a9380b25b742db10964c158190c"
+    sha256 cellar: :any, catalina: "98a193de21bc07a5e39cadd4e4967f30fd19e06c44c46ef24f0d4b8e184bec59"
+    sha256 cellar: :any, mojave: "cf3d702b8b506abcbcce428435b16f78a0ba75c2865094e9b391a8c2622af022"
   end
 
   depends_on "meson" => :build

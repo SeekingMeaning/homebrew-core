@@ -19,12 +19,11 @@ class Luajit < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 3
-    sha256 "527ed375a89f8f017af2e557da99046bc98047433ea367953e3a731ca3119ec0" => :big_sur
-    sha256 "907d7fbbd3be370fac28341bf902a551c1d07dd929b9379bb19e30ccaf0bdef6" => :catalina
-    sha256 "a127723ca4997acaa45e3b548eeb43f06ada464f2f59d518c4d68a89d9cfe6cf" => :mojave
-    sha256 "afd383c796b7d3d7826a6a72acea41ecf57cf183ae84d590a777fb6a71166e80" => :high_sierra
+    sha256 cellar: :any, big_sur: "527ed375a89f8f017af2e557da99046bc98047433ea367953e3a731ca3119ec0"
+    sha256 cellar: :any, catalina: "907d7fbbd3be370fac28341bf902a551c1d07dd929b9379bb19e30ccaf0bdef6"
+    sha256 cellar: :any, mojave: "a127723ca4997acaa45e3b548eeb43f06ada464f2f59d518c4d68a89d9cfe6cf"
+    sha256 cellar: :any, high_sierra: "afd383c796b7d3d7826a6a72acea41ecf57cf183ae84d590a777fb6a71166e80"
   end
 
   def install

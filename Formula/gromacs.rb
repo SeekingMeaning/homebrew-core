@@ -10,10 +10,10 @@ class Gromacs < Formula
   end
 
   bottle do
-    sha256 "649f05f376aa374b060807f2d6409c2d7e3ea4e96ec6736a0e8759446604597a" => :big_sur
-    sha256 "695030d3fca2b654f2b1a9abcf5bcd0b29adc917d12633312bdfd201e8ea84d1" => :arm64_big_sur
-    sha256 "14af8abdc37c7dfad95a33545c510244ec1af163fde27a96d21f5ac7256ae93a" => :catalina
-    sha256 "d3da525c518fcf8401382ce76081a07de31f09b89ae9a6fc4d4f2807f9a6ea3b" => :mojave
+    sha256 big_sur: "649f05f376aa374b060807f2d6409c2d7e3ea4e96ec6736a0e8759446604597a"
+    sha256 arm64_big_sur: "695030d3fca2b654f2b1a9abcf5bcd0b29adc917d12633312bdfd201e8ea84d1"
+    sha256 catalina: "14af8abdc37c7dfad95a33545c510244ec1af163fde27a96d21f5ac7256ae93a"
+    sha256 mojave: "d3da525c518fcf8401382ce76081a07de31f09b89ae9a6fc4d4f2807f9a6ea3b"
   end
 
   depends_on "cmake" => :build

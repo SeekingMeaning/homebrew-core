@@ -12,10 +12,10 @@ class Fortio < Formula
   end
 
   bottle do
-    sha256 "c2ad2f0509ae864d216c5dd3ee8d5156ceecbf4a572697b20c1466f835bcbfa5" => :big_sur
-    sha256 "ce39a9adfc7af3b47e03b497cb2f868aa0623eb4496454595cbe362127d22334" => :arm64_big_sur
-    sha256 "7fc5cf06083d9eef40348742fe5bb43316bfeaa16fb72bd06127e2bc2c70f202" => :catalina
-    sha256 "e112792012f33e671dd9423741bb9f5886558e2216d7f5ea76cfcbdf72e4f101" => :mojave
+    sha256 big_sur: "c2ad2f0509ae864d216c5dd3ee8d5156ceecbf4a572697b20c1466f835bcbfa5"
+    sha256 arm64_big_sur: "ce39a9adfc7af3b47e03b497cb2f868aa0623eb4496454595cbe362127d22334"
+    sha256 catalina: "7fc5cf06083d9eef40348742fe5bb43316bfeaa16fb72bd06127e2bc2c70f202"
+    sha256 mojave: "e112792012f33e671dd9423741bb9f5886558e2216d7f5ea76cfcbdf72e4f101"
   end
 
   depends_on "go" => :build

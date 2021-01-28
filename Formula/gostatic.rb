@@ -7,11 +7,10 @@ class Gostatic < Formula
   head "https://github.com/piranha/gostatic.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f4a592b33ebf22ecff98f7a4e79f7178c3eb9f46b7280c1e1e772ac7fa988153" => :big_sur
-    sha256 "86d594016ca72d62cd81ae96a3ef882b6838e61ce80a0d552df8c3b27c5aca67" => :arm64_big_sur
-    sha256 "f39d3c27ec9f9dcabaf26c6bd3a43212aba280b17edfd6a7e70fc119c883ad6f" => :catalina
-    sha256 "66e2cd38181bb076356fd50df4a045fd04691e9454cc7fdf60acd6e30c1408ea" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "f4a592b33ebf22ecff98f7a4e79f7178c3eb9f46b7280c1e1e772ac7fa988153"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "86d594016ca72d62cd81ae96a3ef882b6838e61ce80a0d552df8c3b27c5aca67"
+    sha256 cellar: :any_skip_relocation, catalina: "f39d3c27ec9f9dcabaf26c6bd3a43212aba280b17edfd6a7e70fc119c883ad6f"
+    sha256 cellar: :any_skip_relocation, mojave: "66e2cd38181bb076356fd50df4a045fd04691e9454cc7fdf60acd6e30c1408ea"
   end
 
   depends_on "go" => :build

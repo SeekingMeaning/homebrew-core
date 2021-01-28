@@ -13,10 +13,9 @@ class Consul < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9c7099cd353c37ea92c066a0a841c0b5eb26c2b992f8fbad872f002970bca3ac" => :big_sur
-    sha256 "6759ecab21796a2f9f13e0be800b9d56e48a2ad1dd8b64223e7c7885e2a19d3a" => :catalina
-    sha256 "c4d00c32bb71bf3fe0bbe1630daa3738e5fd76c6eba5d55584d021d0630bdbb6" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "9c7099cd353c37ea92c066a0a841c0b5eb26c2b992f8fbad872f002970bca3ac"
+    sha256 cellar: :any_skip_relocation, catalina: "6759ecab21796a2f9f13e0be800b9d56e48a2ad1dd8b64223e7c7885e2a19d3a"
+    sha256 cellar: :any_skip_relocation, mojave: "c4d00c32bb71bf3fe0bbe1630daa3738e5fd76c6eba5d55584d021d0630bdbb6"
   end
 
   depends_on "go" => :build

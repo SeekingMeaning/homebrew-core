@@ -7,11 +7,10 @@ class Fizz < Formula
   head "https://github.com/facebookincubator/fizz.git"
 
   bottle do
-    cellar :any
-    sha256 "cc465ed61af168d7f577f2baa34a82cf7fbc0f5b2ad1e6af25575f8fdb1276a5" => :big_sur
-    sha256 "d75ffb151797b4697a63d2ae82393b1f9fc62b1f74a3204808e9958faaeeaac7" => :arm64_big_sur
-    sha256 "2618989f46b90f2b1c8cd92ba6ceddd1bd3043bf500ed928bdf9ea93a3fea0cb" => :catalina
-    sha256 "40be319d704b30e6f872cad1edb621c0341d0f0f1580b824d244f0ed252e04f7" => :mojave
+    sha256 cellar: :any, big_sur: "cc465ed61af168d7f577f2baa34a82cf7fbc0f5b2ad1e6af25575f8fdb1276a5"
+    sha256 cellar: :any, arm64_big_sur: "d75ffb151797b4697a63d2ae82393b1f9fc62b1f74a3204808e9958faaeeaac7"
+    sha256 cellar: :any, catalina: "2618989f46b90f2b1c8cd92ba6ceddd1bd3043bf500ed928bdf9ea93a3fea0cb"
+    sha256 cellar: :any, mojave: "40be319d704b30e6f872cad1edb621c0341d0f0f1580b824d244f0ed252e04f7"
   end
 
   depends_on "cmake" => :build

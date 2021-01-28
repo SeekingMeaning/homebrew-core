@@ -6,11 +6,10 @@ class Mpdecimal < Formula
   license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "720cac61e7e5d61abb0dd1ba0df369ef7a7b1cf188db7e8a1d22a1e62fc84613" => :big_sur
-    sha256 "e0703b703eacc78c9c472e9d4266831ba66a0764310a846e2e8a958a85aa3a28" => :arm64_big_sur
-    sha256 "f43f2a183184abe0bf78291472ac115897fb7defda7394f61367659d95c84c5c" => :catalina
-    sha256 "9619a02392403884e72cd78113eade5bc7687270a762dabf063231f574966221" => :mojave
+    sha256 cellar: :any, big_sur: "720cac61e7e5d61abb0dd1ba0df369ef7a7b1cf188db7e8a1d22a1e62fc84613"
+    sha256 cellar: :any, arm64_big_sur: "e0703b703eacc78c9c472e9d4266831ba66a0764310a846e2e8a958a85aa3a28"
+    sha256 cellar: :any, catalina: "f43f2a183184abe0bf78291472ac115897fb7defda7394f61367659d95c84c5c"
+    sha256 cellar: :any, mojave: "9619a02392403884e72cd78113eade5bc7687270a762dabf063231f574966221"
   end
 
   def install

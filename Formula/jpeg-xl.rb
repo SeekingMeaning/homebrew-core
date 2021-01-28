@@ -6,11 +6,10 @@ class JpegXl < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "e8a6f194a35e81831136c4358786fc2842f9bc57479244f49740e94d70b19635" => :big_sur
-    sha256 "490127aa154b9da56a38133488fd19da54eba9d41fbbdb9bd06d54a0d3652d1e" => :arm64_big_sur
-    sha256 "00953f8445b3243b800e178ae420eb6f032814cf77aac7e62f6625190eb01315" => :catalina
-    sha256 "f3b0878512490e4ec342c6b21c532c13a3b67546b2f6f428f11b55796bffe1b3" => :mojave
+    sha256 cellar: :any, big_sur: "e8a6f194a35e81831136c4358786fc2842f9bc57479244f49740e94d70b19635"
+    sha256 cellar: :any, arm64_big_sur: "490127aa154b9da56a38133488fd19da54eba9d41fbbdb9bd06d54a0d3652d1e"
+    sha256 cellar: :any, catalina: "00953f8445b3243b800e178ae420eb6f032814cf77aac7e62f6625190eb01315"
+    sha256 cellar: :any, mojave: "f3b0878512490e4ec342c6b21c532c13a3b67546b2f6f428f11b55796bffe1b3"
   end
 
   depends_on "cmake" => :build

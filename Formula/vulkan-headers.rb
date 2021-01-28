@@ -6,11 +6,10 @@ class VulkanHeaders < Formula
   license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e781086ca14c672658c10388d82ef23953a4306d00c14eed2e28d57742f0e00e" => :big_sur
-    sha256 "0b3e4cbebb1a15838e29724f6b8076d177b592d30de3220f488d61515a5f555f" => :arm64_big_sur
-    sha256 "8fef853807df1538f2f105f70590c5f2ea674050a1381e8a6529c8be92988269" => :catalina
-    sha256 "97c39cacab39150bc37cda79954ff9ee7412f9ce4da1a15478f82b8b1efd35ae" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "e781086ca14c672658c10388d82ef23953a4306d00c14eed2e28d57742f0e00e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0b3e4cbebb1a15838e29724f6b8076d177b592d30de3220f488d61515a5f555f"
+    sha256 cellar: :any_skip_relocation, catalina: "8fef853807df1538f2f105f70590c5f2ea674050a1381e8a6529c8be92988269"
+    sha256 cellar: :any_skip_relocation, mojave: "97c39cacab39150bc37cda79954ff9ee7412f9ce4da1a15478f82b8b1efd35ae"
   end
 
   depends_on "cmake" => :build

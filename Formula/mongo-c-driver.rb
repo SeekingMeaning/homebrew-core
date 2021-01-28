@@ -7,10 +7,9 @@ class MongoCDriver < Formula
   head "https://github.com/mongodb/mongo-c-driver.git"
 
   bottle do
-    cellar :any
-    sha256 "751a5b119a3c10c8097d5513e35443cef7bf2c357afe2ffdc6eb9520bead30e2" => :big_sur
-    sha256 "0566ce2bcda45b6510e73ccf102ec11b135a8f583a7f048c5e19f71a91c36844" => :catalina
-    sha256 "ed29637f353662121c0a82b849090bc230db918ae443132650fd88044b7e92a1" => :mojave
+    sha256 cellar: :any, big_sur: "751a5b119a3c10c8097d5513e35443cef7bf2c357afe2ffdc6eb9520bead30e2"
+    sha256 cellar: :any, catalina: "0566ce2bcda45b6510e73ccf102ec11b135a8f583a7f048c5e19f71a91c36844"
+    sha256 cellar: :any, mojave: "ed29637f353662121c0a82b849090bc230db918ae443132650fd88044b7e92a1"
   end
 
   depends_on "cmake" => :build

@@ -7,11 +7,10 @@ class Earthly < Formula
   head "https://github.com/earthly/earthly.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "25a294e32cf94e1e118d8682963d95562aee33c0d9aac221d4c8f8c6e9aba2f6" => :big_sur
-    sha256 "942535e18d93957ef5e70ebfd31ff69afc5b2d26aec8b10ca510b3ee94e3062b" => :arm64_big_sur
-    sha256 "1e729e56bc486688d5ed10aa5c77b6440b3de7f03793a58b0860ef06428cf650" => :catalina
-    sha256 "568b3fdf96db335f200feac9c3ed3458f7866490494a9ea1dda8c806aafc2a0b" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "25a294e32cf94e1e118d8682963d95562aee33c0d9aac221d4c8f8c6e9aba2f6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "942535e18d93957ef5e70ebfd31ff69afc5b2d26aec8b10ca510b3ee94e3062b"
+    sha256 cellar: :any_skip_relocation, catalina: "1e729e56bc486688d5ed10aa5c77b6440b3de7f03793a58b0860ef06428cf650"
+    sha256 cellar: :any_skip_relocation, mojave: "568b3fdf96db335f200feac9c3ed3458f7866490494a9ea1dda8c806aafc2a0b"
   end
 
   depends_on "go" => :build

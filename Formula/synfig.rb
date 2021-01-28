@@ -14,9 +14,9 @@ class Synfig < Formula
   end
 
   bottle do
-    sha256 "a9431c84ac1bed253069413a71f865cc3296a2701fa9cbfadef5abda2b2b32e5" => :big_sur
-    sha256 "9b0c8c1ec94ccf80db2128a29139ecfe20d4e1f17b5426b13f9fae7e46b73008" => :catalina
-    sha256 "69051a5d50690e741ee4013becbd7ece0fd4fa99ad910a5ce816310ab2858a4e" => :mojave
+    sha256 big_sur: "a9431c84ac1bed253069413a71f865cc3296a2701fa9cbfadef5abda2b2b32e5"
+    sha256 catalina: "9b0c8c1ec94ccf80db2128a29139ecfe20d4e1f17b5426b13f9fae7e46b73008"
+    sha256 mojave: "69051a5d50690e741ee4013becbd7ece0fd4fa99ad910a5ce816310ab2858a4e"
   end
 
   depends_on "intltool" => :build

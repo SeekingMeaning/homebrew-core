@@ -14,12 +14,11 @@ class AwsGoogleAuth < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 2
-    sha256 "b136bd2033917f9270659aa25a27c58ae5b61298abac0d8d780082fc1a5dbffb" => :big_sur
-    sha256 "e2166acc3d9bd78f4376ab3e68333ad87c7be2f384d1100d7a1b0901214c219f" => :arm64_big_sur
-    sha256 "3e1e3f7997feb294582626b7ae2dbdf4e8c29aba79116ec4726988ea579b5ecf" => :catalina
-    sha256 "7e8275e413dec455d05420a7193a5317e6634aafb7291c2c8cdfb2472fa06ef8" => :mojave
+    sha256 cellar: :any, big_sur: "b136bd2033917f9270659aa25a27c58ae5b61298abac0d8d780082fc1a5dbffb"
+    sha256 cellar: :any, arm64_big_sur: "e2166acc3d9bd78f4376ab3e68333ad87c7be2f384d1100d7a1b0901214c219f"
+    sha256 cellar: :any, catalina: "3e1e3f7997feb294582626b7ae2dbdf4e8c29aba79116ec4726988ea579b5ecf"
+    sha256 cellar: :any, mojave: "7e8275e413dec455d05420a7193a5317e6634aafb7291c2c8cdfb2472fa06ef8"
   end
 
   depends_on "freetype"

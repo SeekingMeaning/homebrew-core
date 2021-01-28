@@ -7,12 +7,11 @@ class Dockerize < Formula
   license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "afcf894929ea36d569a1841f95fc2ed544373719102f13191e1a463e12e33a9b" => :big_sur
-    sha256 "69bccb9e77c9c13b9ae8003f5f11ca4181bd16b5b287cbd9df14a5cb7d963b8c" => :catalina
-    sha256 "94d889365e9e7c502449a79a431e4731faec239a1d2b18f65bf204671890f285" => :mojave
-    sha256 "3a88ca84f7279093a08fda378d2e502de8f3e255a9cd36480473b4c22972854e" => :high_sierra
-    sha256 "94083315a1f3b4e812d0468603900c691ab28d8c16762574c87a922863628b29" => :sierra
+    sha256 cellar: :any_skip_relocation, big_sur: "afcf894929ea36d569a1841f95fc2ed544373719102f13191e1a463e12e33a9b"
+    sha256 cellar: :any_skip_relocation, catalina: "69bccb9e77c9c13b9ae8003f5f11ca4181bd16b5b287cbd9df14a5cb7d963b8c"
+    sha256 cellar: :any_skip_relocation, mojave: "94d889365e9e7c502449a79a431e4731faec239a1d2b18f65bf204671890f285"
+    sha256 cellar: :any_skip_relocation, high_sierra: "3a88ca84f7279093a08fda378d2e502de8f3e255a9cd36480473b4c22972854e"
+    sha256 cellar: :any_skip_relocation, sierra: "94083315a1f3b4e812d0468603900c691ab28d8c16762574c87a922863628b29"
   end
 
   depends_on "go" => :build

@@ -13,10 +13,9 @@ class Conan < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7e6bbac9608bcc1aa8dfae7301b3202540254c7e0c1bc2372b568d0f67fbfe5a" => :big_sur
-    sha256 "341f1ade395e5aad309b85129e0fe4adee49c71767cdcc32f7f84c8ce3c09e72" => :catalina
-    sha256 "17a0b803521d540e6c5db8a3c4a2e158c2c0a1f1c38e9af08e030f4d8a16de99" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "7e6bbac9608bcc1aa8dfae7301b3202540254c7e0c1bc2372b568d0f67fbfe5a"
+    sha256 cellar: :any_skip_relocation, catalina: "341f1ade395e5aad309b85129e0fe4adee49c71767cdcc32f7f84c8ce3c09e72"
+    sha256 cellar: :any_skip_relocation, mojave: "17a0b803521d540e6c5db8a3c4a2e158c2c0a1f1c38e9af08e030f4d8a16de99"
   end
 
   depends_on "pkg-config" => :build

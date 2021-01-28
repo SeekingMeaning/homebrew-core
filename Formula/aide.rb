@@ -6,11 +6,10 @@ class Aide < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "1b41deb51dc2a93fe7cc9636423170bcd7410c555d76d14d723142088ab236d2" => :big_sur
-    sha256 "2f0181e158a1a2eb318f453534ca37418d102508525cfd090cc1405c3e7f7554" => :arm64_big_sur
-    sha256 "ffc37c63e0b9511714e4c29030c765239a203de201aebc297dc77019eeacce8b" => :catalina
-    sha256 "aed7265c6f9b83234b08790276d9e4b8fd2e8c2def9e3641c81310bb56fa1a23" => :mojave
+    sha256 cellar: :any, big_sur: "1b41deb51dc2a93fe7cc9636423170bcd7410c555d76d14d723142088ab236d2"
+    sha256 cellar: :any, arm64_big_sur: "2f0181e158a1a2eb318f453534ca37418d102508525cfd090cc1405c3e7f7554"
+    sha256 cellar: :any, catalina: "ffc37c63e0b9511714e4c29030c765239a203de201aebc297dc77019eeacce8b"
+    sha256 cellar: :any, mojave: "aed7265c6f9b83234b08790276d9e4b8fd2e8c2def9e3641c81310bb56fa1a23"
   end
 
   head do

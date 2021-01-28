@@ -12,10 +12,9 @@ class CloudformationCli < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "86c130f86569921e99479bda3404d9858abf90aa9a5f2c1f88b1cad4329e4879" => :big_sur
-    sha256 "ab12a3379ed2c9f0e595f15fa95ef54ea113fb61064b058573ddf640a5932a30" => :catalina
-    sha256 "355c4ad79aab855003f43815c25e052c52e36b568417ef6c8238729c40308caf" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "86c130f86569921e99479bda3404d9858abf90aa9a5f2c1f88b1cad4329e4879"
+    sha256 cellar: :any_skip_relocation, catalina: "ab12a3379ed2c9f0e595f15fa95ef54ea113fb61064b058573ddf640a5932a30"
+    sha256 cellar: :any_skip_relocation, mojave: "355c4ad79aab855003f43815c25e052c52e36b568417ef6c8238729c40308caf"
   end
 
   depends_on "go" => :test

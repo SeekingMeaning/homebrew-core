@@ -8,11 +8,10 @@ class Docker < Formula
   head "https://github.com/docker/cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1b151040538cbd9a488836af7adcd5880914666a918d4323a318bfb394b5195c" => :big_sur
-    sha256 "174962c9dbd9d49fd970a5e4ac7648e1b61ac1592448a194744f10c6752cf653" => :arm64_big_sur
-    sha256 "15fa582eb8576746711816507cbba451cc1fb6291089c59cbeee16a6d849bb0f" => :catalina
-    sha256 "c2f5ff81f356e038d61fa57ce058da36078d3c65e431bf771bb621c181eb591b" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "1b151040538cbd9a488836af7adcd5880914666a918d4323a318bfb394b5195c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "174962c9dbd9d49fd970a5e4ac7648e1b61ac1592448a194744f10c6752cf653"
+    sha256 cellar: :any_skip_relocation, catalina: "15fa582eb8576746711816507cbba451cc1fb6291089c59cbeee16a6d849bb0f"
+    sha256 cellar: :any_skip_relocation, mojave: "c2f5ff81f356e038d61fa57ce058da36078d3c65e431bf771bb621c181eb591b"
   end
 
   depends_on "go" => :build

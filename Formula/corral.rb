@@ -7,10 +7,9 @@ class Corral < Formula
   head "https://github.com/ponylang/corral.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bf397d0dbb3a63d8347546fa082a854b196f39a2a23263c00eb4fda8d0265a1a" => :catalina
-    sha256 "309858fccac2b1015620240276b2bb53955ea37160632231d88d0deff70931f9" => :mojave
-    sha256 "7a8958c3ce14b94054ca831330f459e84848eac1a6fab7298b02abda185a974f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina: "bf397d0dbb3a63d8347546fa082a854b196f39a2a23263c00eb4fda8d0265a1a"
+    sha256 cellar: :any_skip_relocation, mojave: "309858fccac2b1015620240276b2bb53955ea37160632231d88d0deff70931f9"
+    sha256 cellar: :any_skip_relocation, high_sierra: "7a8958c3ce14b94054ca831330f459e84848eac1a6fab7298b02abda185a974f"
   end
 
   depends_on "ponyc"

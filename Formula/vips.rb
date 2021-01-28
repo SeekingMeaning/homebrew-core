@@ -12,10 +12,10 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 "a36a7a2e76a5ae32912fb15b16a97af9f3e6fe301bfc2aa1c688b01f5d588e88" => :big_sur
-    sha256 "3f592d22b8bc5035eacf6905609274e55e9f22f34850b2179b32156e5499e974" => :arm64_big_sur
-    sha256 "c8bac206f43b178d5ac9f052ff856f1f7eddb5f606a32daa9388b73f56fbb3f8" => :catalina
-    sha256 "ababb7eedd532a9c51114b8e500ef0f3db3cb9199a6a68168114e04a026c12dd" => :mojave
+    sha256 big_sur: "a36a7a2e76a5ae32912fb15b16a97af9f3e6fe301bfc2aa1c688b01f5d588e88"
+    sha256 arm64_big_sur: "3f592d22b8bc5035eacf6905609274e55e9f22f34850b2179b32156e5499e974"
+    sha256 catalina: "c8bac206f43b178d5ac9f052ff856f1f7eddb5f606a32daa9388b73f56fbb3f8"
+    sha256 mojave: "ababb7eedd532a9c51114b8e500ef0f3db3cb9199a6a68168114e04a026c12dd"
   end
 
   depends_on "pkg-config" => :build

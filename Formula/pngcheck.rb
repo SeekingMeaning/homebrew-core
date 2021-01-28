@@ -11,11 +11,10 @@ class Pngcheck < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e4d716fb0d3ff48095b36044e50b79fa80b8cfd962e9a58f0b227ade97bdbbc8" => :big_sur
-    sha256 "bf4febdb6ed3286ae86ceadee979aac9e829e477abd5fb83c595d0edf605194b" => :arm64_big_sur
-    sha256 "02af550fd568214ed59e4fc9d85359b48f4a9520d653fdfa53157f201a803208" => :catalina
-    sha256 "312428dc1c9917eb598d32e0889047adf9789e6b5aca9462f09817c93cfb2193" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "e4d716fb0d3ff48095b36044e50b79fa80b8cfd962e9a58f0b227ade97bdbbc8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bf4febdb6ed3286ae86ceadee979aac9e829e477abd5fb83c595d0edf605194b"
+    sha256 cellar: :any_skip_relocation, catalina: "02af550fd568214ed59e4fc9d85359b48f4a9520d653fdfa53157f201a803208"
+    sha256 cellar: :any_skip_relocation, mojave: "312428dc1c9917eb598d32e0889047adf9789e6b5aca9462f09817c93cfb2193"
   end
 
   def install

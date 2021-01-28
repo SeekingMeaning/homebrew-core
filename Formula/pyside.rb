@@ -12,10 +12,10 @@ class Pyside < Formula
 
   bottle do
     rebuild 1
-    sha256 "b5fbef8f97a40637dde5e19d7d7748c68d6791aff605a9fbc727ec7ab9a59a20" => :big_sur
-    sha256 "a7ad725f886a87be690a6dbd6f692c12ad80217ca4da32ae288835e65b8ebd2f" => :arm64_big_sur
-    sha256 "21ee031fac323276085a0e50bf35bec8b21a1a048114d00143cecbc389c1f97b" => :catalina
-    sha256 "51c56d621de2ecec0ba899fadf2243ceddf7461744f973c2e8c27f4c85d01633" => :mojave
+    sha256 big_sur: "b5fbef8f97a40637dde5e19d7d7748c68d6791aff605a9fbc727ec7ab9a59a20"
+    sha256 arm64_big_sur: "a7ad725f886a87be690a6dbd6f692c12ad80217ca4da32ae288835e65b8ebd2f"
+    sha256 catalina: "21ee031fac323276085a0e50bf35bec8b21a1a048114d00143cecbc389c1f97b"
+    sha256 mojave: "51c56d621de2ecec0ba899fadf2243ceddf7461744f973c2e8c27f4c85d01633"
   end
 
   depends_on "cmake" => :build

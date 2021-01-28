@@ -13,11 +13,10 @@ class AnimeDownloader < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "37a58c59d9ecf285050795d6581d2dcb0e0861d8b998e34260701a8200a824b7" => :big_sur
-    sha256 "7315ffb54c95ce9010915a5775226b932d6ce8a044551e94d37fd5851249dbbb" => :arm64_big_sur
-    sha256 "57273993dbef082d5898202a4e8cda6ead8dd2666da5105cdf296a784c3623a1" => :catalina
-    sha256 "48b168bbd5eb0fce4a0978eb2b39032b7aa32b7967574c43e82bc3f8e24f6991" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "37a58c59d9ecf285050795d6581d2dcb0e0861d8b998e34260701a8200a824b7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7315ffb54c95ce9010915a5775226b932d6ce8a044551e94d37fd5851249dbbb"
+    sha256 cellar: :any_skip_relocation, catalina: "57273993dbef082d5898202a4e8cda6ead8dd2666da5105cdf296a784c3623a1"
+    sha256 cellar: :any_skip_relocation, mojave: "48b168bbd5eb0fce4a0978eb2b39032b7aa32b7967574c43e82bc3f8e24f6991"
   end
 
   depends_on "aria2"

@@ -12,11 +12,10 @@ class Grokj2k < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "034b2c793f856d59049c4d7881e2a103b3cbf9b8eac4bfd9becb48791a3cefc0" => :big_sur
-    sha256 "19c78bad6000b558f34ee2518ecc4b38462c880c2710aef68c1c0f1858811262" => :arm64_big_sur
-    sha256 "98bd1860f83919b21607c56dc7498331ff554869ecab73bb6cdade63979774cb" => :catalina
-    sha256 "208b0a75763be1f139a7bccf5584cb7177b02f0c0e8c9f082dd99f1a5dba09f4" => :mojave
+    sha256 cellar: :any, big_sur: "034b2c793f856d59049c4d7881e2a103b3cbf9b8eac4bfd9becb48791a3cefc0"
+    sha256 cellar: :any, arm64_big_sur: "19c78bad6000b558f34ee2518ecc4b38462c880c2710aef68c1c0f1858811262"
+    sha256 cellar: :any, catalina: "98bd1860f83919b21607c56dc7498331ff554869ecab73bb6cdade63979774cb"
+    sha256 cellar: :any, mojave: "208b0a75763be1f139a7bccf5584cb7177b02f0c0e8c9f082dd99f1a5dba09f4"
   end
 
   depends_on "cmake" => :build

@@ -7,10 +7,9 @@ class Zim < Formula
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0c91e2aa37f2729036860bcfd240c44ceaaf9441a1d6f9b5f5049a5bd55071cc" => :big_sur
-    sha256 "f9e5c6e1dcdc0c740d3814078ead9a66ce2c2e4a13936b340b148fc849c500e4" => :catalina
-    sha256 "bc624e93da48425929bd0eee61d991ff80c1298ec620bfbf9229bd79170087ae" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur: "0c91e2aa37f2729036860bcfd240c44ceaaf9441a1d6f9b5f5049a5bd55071cc"
+    sha256 cellar: :any_skip_relocation, catalina: "f9e5c6e1dcdc0c740d3814078ead9a66ce2c2e4a13936b340b148fc849c500e4"
+    sha256 cellar: :any_skip_relocation, mojave: "bc624e93da48425929bd0eee61d991ff80c1298ec620bfbf9229bd79170087ae"
   end
 
   depends_on "pkg-config" => :build
