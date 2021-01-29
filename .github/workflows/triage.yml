@@ -15,6 +15,9 @@ jobs:
         if: always()
         with:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+      - name: Sleep for 10 seconds
+        if: always()
+        run: sleep 10
       - name: Label pull request
         uses: Homebrew/actions/label-pull-requests@master
         if: always()
