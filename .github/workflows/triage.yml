@@ -103,7 +103,7 @@ jobs:
                     "label": "python",
                     "path": "Formula/.+",
                     "content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\"",
-                    "missing_content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\" => :(build|test)"
+                    "missing_content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\" => \[?:(build|test)"
                 }, {
                     "label": "ruby",
                     "path": "Formula/.+",
