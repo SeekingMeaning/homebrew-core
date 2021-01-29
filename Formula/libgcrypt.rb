@@ -18,6 +18,8 @@ class Libgcrypt < Formula
     sha256 "b3fbe8acbb01d243a7c40a0bfc2834ff0ff91064bf86a4d0e94a721285eb25d9" => :mojave
   end
 
+  disable! date: "2021-01-28", because: "has an urgent security issue in version 1.9.0"
+
   depends_on "libgpg-error"
 
   # Upstream patches to fix basic test failing
