@@ -5,6 +5,7 @@ class Libgcrypt < Formula
   sha256 "03b70f028299561b7034b8966d7dd77ef16ed139c43440925fe8782561974748"
   license "GPL-2.0-only"
   revision 1
+  version_scheme 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/libgcrypt/"
