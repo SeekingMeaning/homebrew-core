@@ -85,7 +85,7 @@ jobs:
                 }, {
                     "label": "lua",
                     "path": "Formula/.+",
-                    "content": "depends_on \"lua(jit)?(@[0-9.]+)?\""
+                    "content": "depends_on \"(lua|luajit|luajit-openresty)(@[0-9.]+)?\""
                 }, {
                     "label": "nodejs",
                     "path": "Formula/.+",
