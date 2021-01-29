@@ -66,15 +66,15 @@ jobs:
                 }, {
                     "label": "go",
                     "path": "Formula/.+",
-                    "content": "depends_on \"go(?:@[0-9.]+)?\""
+                    "content": "depends_on \"go(@[0-9.]+)?\""
                 }, {
                     "label": "haskell",
                     "path": "Formula/.+",
-                    "content": "depends_on \"(?:ghc@?|haskell-stack).+"
+                    "content": "depends_on \"(ghc@?|haskell-stack).+"
                 }, {
                     "label": "java",
                     "path": "Formula/.+",
-                    "content": "depends_on \"?(?:java|openjdk@?).+"
+                    "content": "depends_on \"?(java|openjdk@?).+"
                 }, {
                     "label": "linux-only",
                     "path": "Formula/.+",
@@ -82,11 +82,11 @@ jobs:
                 }, {
                     "label": "lua",
                     "path": "Formula/.+",
-                    "content": "depends_on \"lua(?:@[0-9.]+|jit)?\""
+                    "content": "depends_on \"lua(@[0-9.]+|jit)?\""
                 }, {
                     "label": "nodejs",
                     "path": "Formula/.+",
-                    "content": "depends_on \"node(?:@\\d+)?\""
+                    "content": "depends_on \"node(@\\d+)?\""
                 }, {
                     "label": "ocaml",
                     "path": "Formula/.+",
@@ -94,20 +94,20 @@ jobs:
                 }, {
                     "label": "perl",
                     "path": "Formula/.+",
-                    "content": "(?:depends_on|uses_from_macos) \"perl@?.+"
+                    "content": "(depends_on|uses_from_macos) \"perl@?.+"
                 }, {
                     "label": "php",
                     "path": "Formula/.+",
-                    "content": "(?:depends_on|uses_from_macos) \"php@?.+"
+                    "content": "(depends_on|uses_from_macos) \"php@?.+"
                 }, {
                     "label": "python",
                     "path": "Formula/.+",
-                    "content": "(?:depends_on|uses_from_macos) \"python@?.+",
-                    "missing_content": "(?:depends_on|uses_from_macos) \"python@?.+\" => :(build|test)"
+                    "content": "(depends_on|uses_from_macos) \"python@?.+",
+                    "missing_content": "(depends_on|uses_from_macos) \"python@?.+\" => :(build|test)"
                 }, {
                     "label": "ruby",
                     "path": "Formula/.+",
-                    "content": "(?:depends_on|uses_from_macos) \"ruby@?.+"
+                    "content": "(depends_on|uses_from_macos) \"ruby@?.+"
                 }, {
                     "label": "rust",
                     "path": "Formula/.+",
