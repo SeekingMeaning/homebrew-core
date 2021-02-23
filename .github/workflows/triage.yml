@@ -74,7 +74,7 @@ jobs:
                 }, {
                     "label": "java",
                     "path": "Formula/.+",
-                    "content": "depends_on \"openjdk(@[0-9.]+)?\""
+                    "content": "depends_on \"openjdk(@[0-9.]+)?\"(?! => \\[?:(build|test))"
                 }, {
                     "label": "linux-only",
                     "path": "Formula/.+",
@@ -82,11 +82,11 @@ jobs:
                 }, {
                     "label": "lua",
                     "path": "Formula/.+",
-                    "content": "depends_on \"(lua|luajit|luajit-openresty)(@[0-9.]+)?\""
+                    "content": "depends_on \"(lua|luajit|luajit-openresty)(@[0-9.]+)?\"(?! => \\[?:(build|test))"
                 }, {
                     "label": "nodejs",
                     "path": "Formula/.+",
-                    "content": "depends_on \"node(@[0-9.]+)?\""
+                    "content": "depends_on \"node(@[0-9.]+)?\"(?! => \\[?:(build|test))"
                 }, {
                     "label": "ocaml",
                     "path": "Formula/.+",
@@ -94,20 +94,19 @@ jobs:
                 }, {
                     "label": "perl",
                     "path": "Formula/.+",
-                    "content": "(depends_on|uses_from_macos) \"perl(@[0-9.]+)?\""
+                    "content": "(depends_on|uses_from_macos) \"perl(@[0-9.]+)?\"(?! => \\[?:(build|test))"
                 }, {
                     "label": "php",
                     "path": "Formula/.+",
-                    "content": "(depends_on|uses_from_macos) \"php(@[0-9.]+)?\""
+                    "content": "(depends_on|uses_from_macos) \"php(@[0-9.]+)?\"(?! => \\[?:(build|test))"
                 }, {
                     "label": "python",
                     "path": "Formula/.+",
-                    "content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\"",
-                    "missing_content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\" => \\[?:(build|test)"
+                    "content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\"(?! => \\[?:(build|test))"
                 }, {
                     "label": "ruby",
                     "path": "Formula/.+",
-                    "content": "(depends_on|uses_from_macos) \"ruby(@[0-9.]+)?\""
+                    "content": "(depends_on|uses_from_macos) \"ruby(@[0-9.]+)?\"(?! => \\[?:(build|test))"
                 }, {
                     "label": "rust",
                     "path": "Formula/.+",
